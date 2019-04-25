@@ -1,0 +1,7 @@
+C:\Users\Edo's PC\Desktop\PredskolskaUstanova seminarski\PredskolskaUstanovaTabular\bin\UplateRoditeljaTabular.asdatabase
+C:\Users\Edo's PC\Desktop\PredskolskaUstanova seminarski\PredskolskaUstanovaTabular\bin\UplateRoditeljaTabular.deploymenttargets
+C:\Users\Edo's PC\Desktop\PredskolskaUstanova seminarski\PredskolskaUstanovaTabular\bin\UplateRoditeljaTabular.deploymentoptions
+C:\Users\Edo's PC\Desktop\PredskolskaUstanova seminarski\PredskolskaUstanovaTabular\obj\Development\PredskolskaUstanovaTabular.smproj.CoreCompileInputs.cache
+C:\Users\Edo's PC\Desktop\PredskolskaUstanova seminarski\PredskolskaUstanovaTabular\obj\Development\UplateRoditeljaTabular.asdatabase
+C:\Users\Edo's PC\Desktop\PredskolskaUstanova seminarski\PredskolskaUstanovaTabular\obj\Development\UplateRoditeljaTabular.deploymentoptions
+C:\Users\Edo's PC\Desktop\PredskolskaUstanova seminarski\PredskolskaUstanovaTabular\obj\Development\UplateRoditeljaTabular.deploymenttargets

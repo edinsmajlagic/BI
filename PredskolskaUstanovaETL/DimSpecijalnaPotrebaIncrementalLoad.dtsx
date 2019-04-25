@@ -1,0 +1,2057 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/30/2017 3:47:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EDOS-PC"
+  DTS:CreatorName="EDOS-PC\Edo's PC"
+  DTS:DTSID="{86FCC897-A2A9-4189-B1D8-0604A687A777}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="5146"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{6D1FE3B1-BF5C-4EFD-9E69-395F25B42CCB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{212d7ccd-223a-43b9-b567-ead5f498abce}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delete\Delete"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{4da63393-15ed-4fdd-ac77-74c44fb1ce67}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Delete\Delete\Delete"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Delete"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DELETE
+FROM DimSpecijalnaPotreba
+WHERE SpecijalnaPotrebaAltID=?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Delete\Delete\Delete.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input].Columns[SpecijalnaPotrebaAltID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaAltID"
+                          externalMetadataColumnId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="i4"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Delete\Delete\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[SpecijalnaPotreba]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[SpecijalnaPotreba]) [refTable]
+where [refTable].[SpecijalnaPotrebaID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SpecijalnaPotrebaID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="KategorijaID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TipPotrebe" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Opis" dataType="DT_NTEXT" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Delete\Delete\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="{9020CAFA-D4D7-4345-AE72-332C2CB9A110}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanova]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Delete\Delete\Lookup.Inputs[Lookup Input].Columns[SpecijalnaPotrebaAltID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaAltID"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">SpecijalnaPotrebaID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Delete\Delete\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\Lookup.Outputs[Lookup Match Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Delete\Delete\Lookup.Outputs[Lookup Match Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">SpecijalnaPotrebaID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Delete\Delete\PredskolskaUstanovaDW"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PredskolskaUstanovaDW"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimSpecijalnaPotreba]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Delete\Delete\PredskolskaUstanovaDW.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaID]"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaAltID]"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]"
+                          name="SpecijalnaPotrebaAltID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[TipPotrebe]"
+                          length="50"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[TipPotrebe]"
+                          name="TipPotrebe"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          name="SpecijalnaPotrebaID" />
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          name="SpecijalnaPotrebaAltID" />
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          name="TipPotrebe" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaAltID]"
+                          name="SpecijalnaPotrebaAltID" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[TipPotrebe]"
+                          name="TipPotrebe" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Delete\Delete.Paths[Lookup No Match Output]"
+                  endId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Delete\Delete\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\Delete\Delete.Paths[OLE DB Source Output]"
+                  endId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update_Insert"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{9D178328-FF9E-4A5D-9E4D-2A182CE94DE9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update_Insert">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update_Insert\Update_Insert"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{1F64854E-FF09-48AB-8B58-C37AD251D75E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_Insert"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[TipPotrebe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[SpecijalnaPotrebaAltID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaAltID"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaAltID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[TipPotrebe (1)]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe (1)"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe (1)]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Novi zapis]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Novi zapis"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[ISNULL](#{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaAltID]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(SpecijalnaPotrebaAltID)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Izmjena zapis]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Izmjena zapis"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe]} != #{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe (1)]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">TipPotrebe != [TipPotrebe (1)]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DimSpecijalnaPotreba"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimSpecijalnaPotreba]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input].Columns[TipPotrebe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input].ExternalColumns[TipPotrebe]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input].Columns[SpecijalnaPotrebaID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaID"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input].ExternalColumns[SpecijalnaPotrebaAltID]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input].ExternalColumns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          name="SpecijalnaPotrebaID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input].ExternalColumns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          name="SpecijalnaPotrebaAltID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input].ExternalColumns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          name="TipPotrebe" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Merge Join"
+                  componentClassID="Microsoft.MergeJoin"
+                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+                  name="Merge Join"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of join to perform."
+                      name="JoinType"
+                      typeConverter="JoinType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of columns in the ordering key."
+                      name="NumKeyColumns">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the null values are treated as equal values."
+                      name="TreatNullsAsEqual">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates the requested maximum buffers per input before blocking."
+                      name="MaxBuffersPerInput">5</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Left Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[SpecijalnaPotrebaID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[SpecijalnaPotrebaID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[TipPotrebe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[TipPotrebe]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Right Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[SpecijalnaPotrebaAltID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaAltID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[SpecijalnaPotrebaAltID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[SpecijalnaPotrebaID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaID"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[SpecijalnaPotrebaID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[TipPotrebe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[TipPotrebe]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output]"
+                      isSorted="true"
+                      name="Merge Join Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[SpecijalnaPotrebaID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe]"
+                          name="TipPotrebe">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[TipPotrebe]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaID (1)]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaID (1)]"
+                          name="SpecijalnaPotrebaID (1)">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[SpecijalnaPotrebaID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaAltID]"
+                          name="SpecijalnaPotrebaAltID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[SpecijalnaPotrebaAltID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe (1)]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe (1)]"
+                          name="TipPotrebe (1)">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[TipPotrebe]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PredskolskaUstanova"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[SpecijalnaPotreba]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Connections[OleDbConnection]"
+                      connectionManagerID="{9020CAFA-D4D7-4345-AE72-332C2CB9A110}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanova]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaID]"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[TipPotrebe]"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[TipPotrebe]"
+                          name="TipPotrebe"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          name="SpecijalnaPotrebaID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[KategorijaID]"
+                          dataType="i4"
+                          name="KategorijaID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          name="TipPotrebe" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Opis]"
+                          dataType="nText"
+                          name="Opis" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[TipPotrebe]"
+                          name="TipPotrebe" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PredskolskaUstanovaDW"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimSpecijalnaPotreba]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaID]"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaAltID]"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]"
+                          name="SpecijalnaPotrebaAltID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[TipPotrebe]"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[TipPotrebe]"
+                          name="TipPotrebe"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          name="SpecijalnaPotrebaID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          name="SpecijalnaPotrebaAltID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          name="TipPotrebe" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaAltID]"
+                          name="SpecijalnaPotrebaAltID" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[TipPotrebe]"
+                          name="TipPotrebe" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input].Columns[SpecijalnaPotrebaID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaID"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input].Columns[TipPotrebe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[TipPotrebe]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[TipPotrebe]"
+                          name="TipPotrebe">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[TipPotrebe]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Sort 1"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input].Columns[SpecijalnaPotrebaID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaID"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input].Columns[SpecijalnaPotrebaAltID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaAltID"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input].Columns[TipPotrebe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[TipPotrebe]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[SpecijalnaPotrebaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[SpecijalnaPotrebaID]"
+                          name="SpecijalnaPotrebaID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[SpecijalnaPotrebaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[SpecijalnaPotrebaAltID]"
+                          name="SpecijalnaPotrebaAltID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[TipPotrebe]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[TipPotrebe]"
+                          name="TipPotrebe">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[TipPotrebe]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Update"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Update"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DimSpecijalnaPotreba
+SET TipPotrebe=?
+WHERE SpecijalnaPotrebaAltID = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\Update.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].Columns[TipPotrebe]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TipPotrebe"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[TipPotrebe]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].Columns[SpecijalnaPotrebaID]"
+                          cachedDataType="i4"
+                          cachedName="SpecijalnaPotrebaID"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[SpecijalnaPotrebaID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="i4"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Izmjena zapis]"
+                  endId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]"
+                  name="Izmjena zapis"
+                  startId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Izmjena zapis]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Merge Join Output]"
+                  endId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Merge Join Output"
+                  startId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Novi zapis]"
+                  endId="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba.Inputs[OLE DB Destination Input]"
+                  name="Novi zapis"
+                  startId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Novi zapis]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output]"
+                  endId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output1]"
+                  endId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Sort Output]"
+                  endId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input]"
+                  name="Sort Output"
+                  startId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Sort Output1]"
+                  endId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8982ED47-CDAF-4E1A-8F50-B0DCCE60A8F4}"
+      DTS:From="Package\Update_Insert"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Delete" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert"
+          TopLeft="32.2499955358605,17.4999985665083" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="226,110.666666666667"
+          Size="226,153.333333333334"
+          Id="Package\Update_Insert"
+          TopLeft="267.083329353482,19.9333329768976" />
+        <NodeLayout
+          Size="109.333333333334,42.6666666666667"
+          Id="Package\Delete\Delete"
+          TopLeft="32.2499955358605,17.4999985665083" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="226,110.666666666667"
+          Size="226,154"
+          Id="Package\Delete"
+          TopLeft="278.988091080849,233.314285368919" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="380.083329353482,173.266666310231">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.9047617273671,60.0476190586885"
+              Start="0,0"
+              End="11.9047617273671,52.5476190586885">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0238095293443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0238095293443"
+                    Point2="0,30.0238095293443"
+                    Point3="4,30.0238095293443" />
+                  <mssgle:LineSegment
+                    End="7.90476172736714,30.0238095293443" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.90476172736714,30.0238095293443"
+                    Point2="11.9047617273671,30.0238095293443"
+                    Point3="11.9047617273671,34.0238095293443" />
+                  <mssgle:LineSegment
+                    End="11.9047617273671,52.5476190586885" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Update_Insert\Update_Insert">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\PredskolskaUstanova"
+          TopLeft="165.416664201766,20.3666663024823" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW"
+          TopLeft="475.925918834077,17.3333330233892" />
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Sort"
+          TopLeft="262.037033132381,110.25925728767" />
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Sort 1"
+          TopLeft="485.185177955362,112.185183179158" />
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output]"
+          TopLeft="254.7499975351,63.033332969149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="56.6203689306146,47.2259243185212"
+              Start="0,0"
+              End="56.6203689306146,39.7259243185212">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.6129621592606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.6129621592606"
+                    Point2="0,23.6129621592606"
+                    Point3="4,23.6129621592606" />
+                  <mssgle:LineSegment
+                    End="52.6203689306146,23.6129621592606" />
+                  <mssgle:CubicBezierSegment
+                    Point1="52.6203689306146,23.6129621592606"
+                    Point2="56.6203689306146,23.6129621592606"
+                    Point3="56.6203689306146,27.6129621592606" />
+                  <mssgle:LineSegment
+                    End="56.6203689306146,39.7259243185212" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output1]"
+          TopLeft="573.25925216741,59.9999996900558">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.7407408787146,52.1851834891019"
+              Start="0,0"
+              End="-38.7407408787146,44.6851834891019">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.092591744551" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.092591744551"
+                    Point2="0,26.092591744551"
+                    Point3="-4,26.092591744551" />
+                  <mssgle:LineSegment
+                    End="-34.7407408787146,26.092591744551" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-34.7407408787146,26.092591744551"
+                    Point2="-38.7407408787146,26.092591744551"
+                    Point3="-38.7407408787146,30.092591744551" />
+                  <mssgle:LineSegment
+                    End="-38.7407408787146,44.6851834891019" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="131.333333333334,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Merge Join"
+          TopLeft="356.547613734646,201.809520200888" />
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Sort Output]"
+          TopLeft="311.370366465714,152.925923954337">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.2883583800424,48.8835962465516"
+              Start="0,0"
+              End="90.2883583800424,41.3835962465516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.9771367920883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.9771367920883"
+                    Point2="0,28.9771367920883"
+                    Point3="4,28.9771367920883" />
+                  <mssgle:LineSegment
+                    End="86.2883583800424,28.9771367920883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="86.2883583800424,28.9771367920883"
+                    Point2="90.2883583800424,28.9771367920883"
+                    Point3="90.2883583800424,32.9771367920883" />
+                  <mssgle:LineSegment
+                    End="90.2883583800424,41.3835962465516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Sort Output1]"
+          TopLeft="534.518511288696,154.851849845824">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-91.748675331828,46.9576703550639"
+              Start="0,0"
+              End="-91.748675331828,39.4576703550639">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.8354896487891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.8354896487891"
+                    Point2="0,27.8354896487891"
+                    Point3="-4,27.8354896487891" />
+                  <mssgle:LineSegment
+                    End="-87.748675331828,27.8354896487891" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-87.748675331828,27.8354896487891"
+                    Point2="-91.748675331828,27.8354896487891"
+                    Point3="-91.748675331828,31.8354896487891" />
+                  <mssgle:LineSegment
+                    End="-91.748675331828,39.4576703550639" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Conditional Split"
+          TopLeft="343.452375834542,281.047614022096" />
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Merge Join Output]"
+          TopLeft="421.833328117927,244.476186867555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.571427154541"
+              Start="0,0"
+              End="0,29.071427154541">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.071427154541" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181.333333333334,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba"
+          TopLeft="517.85713514047,357.047613446485" />
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Novi zapis]"
+          TopLeft="421.452375834542,323.714280688763">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.071425972595,33.3333327577227"
+              Start="0,0"
+              End="187.071425972595,25.8333327577227">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.6666663788614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.6666663788614"
+                    Point2="0,16.6666663788614"
+                    Point3="4,16.6666663788614" />
+                  <mssgle:LineSegment
+                    End="183.071425972595,16.6666663788614" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.071425972595,16.6666663788614"
+                    Point2="187.071425972595,16.6666663788614"
+                    Point3="187.071425972595,20.6666663788614" />
+                  <mssgle:LineSegment
+                    End="187.071425972595,25.8333327577227" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="70.7631348612975,21.6666663788614,45.54515625,11.3310546875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Update"
+          TopLeft="187.499997206032,355.666662537768" />
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Izmjena zapis]"
+          TopLeft="396.785709167875,323.714280688763">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-152.619045295176,31.9523818490051"
+              Start="0,0"
+              End="-152.619045295176,24.4523818490051">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.97558653766703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.97558653766703"
+                    Point2="0,12.975586537667"
+                    Point3="-4,12.975586537667" />
+                  <mssgle:LineSegment
+                    End="-148.619045295176,12.975586537667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-148.619045295176,12.975586537667"
+                    Point2="-152.619045295176,12.975586537667"
+                    Point3="-152.619045295176,16.975586537667" />
+                  <mssgle:LineSegment
+                    End="-152.619045295176,24.4523818490051" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-107.278702335088,17.975586537667,61.938359375,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Delete\Delete">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Delete\Delete\PredskolskaUstanovaDW"
+          TopLeft="386,22.6666666666667" />
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Delete\Delete\Lookup"
+          TopLeft="429.333333333333,154" />
+        <EdgeLayout
+          Id="Package\Delete\Delete.Paths[OLE DB Source Output]"
+          TopLeft="484.666666666667,65.3333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88.6666666666667"
+              Start="0,0"
+              End="0,81.1666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.1666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="109.333333333334,42.6666666666667"
+          Id="Package\Delete\Delete\Delete"
+          TopLeft="428.666666666667,258" />
+        <EdgeLayout
+          Id="Package\Delete\Delete.Paths[Lookup No Match Output]"
+          TopLeft="484.666666666667,196.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.3333333333333"
+              Start="0,0"
+              End="0,53.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,21.1119791666666,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update_Insert\Update_Insert\PredskolskaUstanova">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update_Insert\Update_Insert\DimSpecijalnaPotreba">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Delete\Delete\PredskolskaUstanovaDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Delete\Delete\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[SpecijalnaPotreba]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

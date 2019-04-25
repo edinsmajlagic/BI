@@ -1,0 +1,2220 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/30/2017 2:55:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EDOS-PC"
+  DTS:CreatorName="EDOS-PC\Edo's PC"
+  DTS:DTSID="{8EE7445E-612E-47CD-BCA7-2A1F01BE0AEB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="5146"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{4BC1A769-634C-4A9D-8CEC-01F241FAE1F3}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FactUpisDjece"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A9F3C8D3-F6C4-4C88-96C2-364DC154FF31}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactUpisDjece"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FactUpisDjece\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1].Columns[DatumAltID]"
+                      cachedDataType="dbDate"
+                      cachedName="DatumAltID"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[DatumAltID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1].Columns[GrupaAltID]"
+                      cachedDataType="i4"
+                      cachedName="GrupaAltID"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GrupaAltID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1].Columns[LokacijaAltID]"
+                      cachedDataType="i4"
+                      cachedName="LokacijaAltID"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[LokacijaAltID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1].Columns[PlanProgramAltID]"
+                      cachedDataType="i4"
+                      cachedName="PlanProgramAltID"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[PlanProgramAltID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1].Columns[SocijalnoStanjeAltID]"
+                      cachedDataType="i4"
+                      cachedName="SocijalnoStanjeAltID"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SocijalnoStanjeAltID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1].Columns[SpecijalnaPotrebaAltID]"
+                      cachedDataType="i4"
+                      cachedName="SpecijalnaPotrebaAltID"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1].Columns[Spol]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Spol"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Spol]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[DatumAltID]"
+                      dataType="dbDate"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[DatumAltID]"
+                      name="DatumAltID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[DatumAltID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[GrupaAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[GrupaAltID]"
+                      name="GrupaAltID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GrupaAltID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[LokacijaAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[LokacijaAltID]"
+                      name="LokacijaAltID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[LokacijaAltID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[PlanProgramAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[PlanProgramAltID]"
+                      name="PlanProgramAltID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[PlanProgramAltID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SocijalnoStanjeAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SocijalnoStanjeAltID]"
+                      name="SocijalnoStanjeAltID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SocijalnoStanjeAltID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SpecijalnaPotrebaAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SpecijalnaPotrebaAltID]"
+                      name="SpecijalnaPotrebaAltID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[Spol]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[Spol]"
+                      name="Spol">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Spol]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[UkupnoUpisano]"
+                      dataType="ui8"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[UkupnoUpisano]"
+                      name="UkupnoUpisano">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\FactUpisDjece\0:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\PredskolskaUstanova"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="PredskolskaUstanova"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT D.DatumUpisa AS DatumAltID,
+D.GrupaID AS GrupaAltID,
+D.GradID AS LokacijaAltID,
+ D.PlanProgramID AS PlanProgramAltID,
+D.SocijalnoStanjeID AS SocijalnoStanjeAltID,
+ISNULL(DSP.SpecijalnaPotrebaID,0) AS SpecijalnaPotrebaAltID,
+ISNULL(D.Spol,'N') AS Spol
+FROM dbo.Dijete AS D
+     LEFT JOIN dbo.DijeteSpecijalnaPotreba AS DSP ON D.DijeteID=DSP.DijeteID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\PredskolskaUstanova.Connections[OleDbConnection]"
+                  connectionManagerID="{9020CAFA-D4D7-4345-AE72-332C2CB9A110}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanova]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[DatumAltID]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[DatumAltID]"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[DatumAltID]"
+                      name="DatumAltID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GrupaAltID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[GrupaAltID]"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GrupaAltID]"
+                      name="GrupaAltID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                      name="LokacijaAltID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[PlanProgramAltID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[PlanProgramAltID]"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[PlanProgramAltID]"
+                      name="PlanProgramAltID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SocijalnoStanjeAltID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SocijalnoStanjeAltID]"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SocijalnoStanjeAltID]"
+                      name="SocijalnoStanjeAltID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaAltID]"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SpecijalnaPotrebaAltID]"
+                      name="SpecijalnaPotrebaAltID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Spol]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Spol]"
+                      length="1"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Spol]"
+                      name="Spol"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[DatumAltID]"
+                      dataType="dbDate"
+                      name="DatumAltID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[GrupaAltID]"
+                      dataType="i4"
+                      name="GrupaAltID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                      dataType="i4"
+                      name="LokacijaAltID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[PlanProgramAltID]"
+                      dataType="i4"
+                      name="PlanProgramAltID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SocijalnoStanjeAltID]"
+                      dataType="i4"
+                      name="SocijalnoStanjeAltID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SpecijalnaPotrebaAltID]"
+                      dataType="i4"
+                      name="SpecijalnaPotrebaAltID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Spol]"
+                      dataType="wstr"
+                      length="1"
+                      name="Spol" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[DatumAltID]"
+                      dataType="dbDate"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[DatumAltID]"
+                      name="DatumAltID" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[GrupaAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[GrupaAltID]"
+                      name="GrupaAltID" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                      name="LokacijaAltID" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[PlanProgramAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[PlanProgramAltID]"
+                      name="PlanProgramAltID" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SocijalnoStanjeAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SocijalnoStanjeAltID]"
+                      name="SocijalnoStanjeAltID" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaAltID]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SpecijalnaPotrebaAltID]"
+                      name="SpecijalnaPotrebaAltID" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Spol]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Spol]"
+                      name="Spol" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\PredskolskaUstanovaDW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="PredskolskaUstanovaDW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactUpisDjece]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[UkupnoUpisano]"
+                      cachedDataType="ui8"
+                      cachedName="UkupnoUpisano"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[UkupnoUpisano]"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[UkupnoUpisano]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[DatumID]"
+                      cachedDataType="i4"
+                      cachedName="DatumID"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[DatumID]"
+                      lineageId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Match Output].Columns[DatumID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[GrupaID]"
+                      cachedDataType="i4"
+                      cachedName="GrupaID"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[GrupaID]"
+                      lineageId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Match Output].Columns[GrupaID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[LokacijaID]"
+                      cachedDataType="i4"
+                      cachedName="LokacijaID"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaID]"
+                      lineageId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Match Output].Columns[LokacijaID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[PlanProgramID]"
+                      cachedDataType="i4"
+                      cachedName="PlanProgramID"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[PlanProgramID]"
+                      lineageId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Match Output].Columns[PlanProgramID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[SocijalnoStanjeID]"
+                      cachedDataType="i4"
+                      cachedName="SocijalnoStanjeID"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SocijalnoStanjeID]"
+                      lineageId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Match Output].Columns[SocijalnoStanjeID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[SpecijalnaPotrebaID]"
+                      cachedDataType="i4"
+                      cachedName="SpecijalnaPotrebaID"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SpecijalnaPotrebaID]"
+                      lineageId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Match Output].Columns[SpecijalnaPotrebaID]" />
+                    <inputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[Spol]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Spol"
+                      externalMetadataColumnId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SpolKey]"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[Spol]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[UpisDjeceID]"
+                      dataType="i4"
+                      name="UpisDjeceID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[DatumID]"
+                      dataType="i4"
+                      name="DatumID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[GrupaID]"
+                      dataType="i4"
+                      name="GrupaID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaID]"
+                      dataType="i4"
+                      name="LokacijaID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[PlanProgramID]"
+                      dataType="i4"
+                      name="PlanProgramID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SocijalnoStanjeID]"
+                      dataType="i4"
+                      name="SocijalnoStanjeID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SpecijalnaPotrebaID]"
+                      dataType="i4"
+                      name="SpecijalnaPotrebaID" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SpolKey]"
+                      dataType="wstr"
+                      length="1"
+                      name="SpolKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[UkupnoUpisano]"
+                      dataType="i4"
+                      name="UkupnoUpisano" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\vrati DatumID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="vrati DatumID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimDatum]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimDatum]) [refTable]
+where [refTable].[DatumAltID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DatumID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DatumAltID" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Godina" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Mjesec" dataType="DT_WSTR" length="9" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[DatumAltID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\vrati DatumID.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\vrati DatumID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\vrati DatumID.Inputs[Lookup Input].Columns[DatumAltID]"
+                      cachedDataType="dbDate"
+                      cachedName="DatumAltID"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[DatumAltID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DatumAltID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati DatumID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Match Output].Columns[DatumID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Match Output].Columns[DatumID]"
+                      name="DatumID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">DatumID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati DatumID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati DatumID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\vrati GrupaID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="vrati GrupaID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimGrupa]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimGrupa]) [refTable]
+where [refTable].[GrupaAltID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="GrupaID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GrupaAltID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Naziv" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StarosnaDob" dataType="DT_WSTR" length="30" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[GrupaAltID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\vrati GrupaID.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\vrati GrupaID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\vrati GrupaID.Inputs[Lookup Input].Columns[GrupaAltID]"
+                      cachedDataType="i4"
+                      cachedName="GrupaAltID"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[GrupaAltID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">GrupaAltID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati GrupaID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Match Output].Columns[GrupaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Match Output].Columns[GrupaID]"
+                      name="GrupaID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">GrupaID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati GrupaID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati GrupaID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\vrati LokacijaID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="vrati LokacijaID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimLokacija]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimLokacija]) [refTable]
+where [refTable].[LokacijaAltID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="LokacijaID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LokacijaAltID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Grad" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Drzava" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[LokacijaAltID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\vrati LokacijaID.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\vrati LokacijaID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\vrati LokacijaID.Inputs[Lookup Input].Columns[LokacijaAltID]"
+                      cachedDataType="i4"
+                      cachedName="LokacijaAltID"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[LokacijaAltID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LokacijaAltID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati LokacijaID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Match Output].Columns[LokacijaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Match Output].Columns[LokacijaID]"
+                      name="LokacijaID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">LokacijaID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati LokacijaID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati LokacijaID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\vrati PlanProgramID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="vrati PlanProgramID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimPlanProgram]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimPlanProgram]) [refTable]
+where [refTable].[PlanProgramAltID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PlanProgramID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PlanProgramAltID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Naziv" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[PlanProgramAltID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\vrati PlanProgramID.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\vrati PlanProgramID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\vrati PlanProgramID.Inputs[Lookup Input].Columns[PlanProgramAltID]"
+                      cachedDataType="i4"
+                      cachedName="PlanProgramAltID"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[PlanProgramAltID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">PlanProgramAltID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati PlanProgramID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Match Output].Columns[PlanProgramID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Match Output].Columns[PlanProgramID]"
+                      name="PlanProgramID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">PlanProgramID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati PlanProgramID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati PlanProgramID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\vrati SocijalnoStanjeID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="vrati SocijalnoStanjeID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimSocijalnoStanje]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimSocijalnoStanje]) [refTable]
+where [refTable].[SocijalnoStanjeAltID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SocijalnoStanjeID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SocijalnoStanjeAltID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Kategorija" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SocijalnoStanjeAltID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Inputs[Lookup Input].Columns[SocijalnoStanjeAltID]"
+                      cachedDataType="i4"
+                      cachedName="SocijalnoStanjeAltID"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SocijalnoStanjeAltID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SocijalnoStanjeAltID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Match Output].Columns[SocijalnoStanjeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Match Output].Columns[SocijalnoStanjeID]"
+                      name="SocijalnoStanjeID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SocijalnoStanjeID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="vrati SpecijalnaPotrebaID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimSpecijalnaPotreba]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimSpecijalnaPotreba]) [refTable]
+where [refTable].[SpecijalnaPotrebaAltID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="SpecijalnaPotrebaID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SpecijalnaPotrebaAltID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TipPotrebe" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SpecijalnaPotrebaAltID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Inputs[Lookup Input].Columns[SpecijalnaPotrebaAltID]"
+                      cachedDataType="i4"
+                      cachedName="SpecijalnaPotrebaAltID"
+                      lineageId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1].Columns[SpecijalnaPotrebaAltID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">SpecijalnaPotrebaAltID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Match Output].Columns[SpecijalnaPotrebaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Match Output].Columns[SpecijalnaPotrebaID]"
+                      name="SpecijalnaPotrebaID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">SpecijalnaPotrebaID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FactUpisDjece.Paths[Aggregate Output 1]"
+              endId="Package\FactUpisDjece\vrati DatumID.Inputs[Lookup Input]"
+              name="Aggregate Output 1"
+              startId="Package\FactUpisDjece\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\FactUpisDjece.Paths[Lookup Match Output]"
+              endId="Package\FactUpisDjece\vrati GrupaID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactUpisDjece\vrati DatumID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactUpisDjece.Paths[Lookup Match Output1]"
+              endId="Package\FactUpisDjece\vrati LokacijaID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactUpisDjece\vrati GrupaID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactUpisDjece.Paths[Lookup Match Output2]"
+              endId="Package\FactUpisDjece\vrati PlanProgramID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactUpisDjece\vrati LokacijaID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactUpisDjece.Paths[Lookup Match Output3]"
+              endId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactUpisDjece\vrati PlanProgramID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactUpisDjece.Paths[Lookup Match Output4]"
+              endId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\FactUpisDjece\vrati SocijalnoStanjeID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactUpisDjece.Paths[Lookup Match Output5]"
+              endId="Package\FactUpisDjece\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]"
+              name="Lookup Match Output"
+              startId="Package\FactUpisDjece\vrati SpecijalnaPotrebaID.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\FactUpisDjece.Paths[OLE DB Source Output]"
+              endId="Package\FactUpisDjece\Aggregate.Inputs[Aggregate Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\FactUpisDjece\PredskolskaUstanova.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\FactUpisDjece"
+          TopLeft="205.41666360572,49.8333324422439" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FactUpisDjece">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\FactUpisDjece\PredskolskaUstanova"
+          TopLeft="132.738093260144,24.8095233778159" />
+        <NodeLayout
+          Size="128,42.6666666666667"
+          Id="Package\FactUpisDjece\Aggregate"
+          TopLeft="444.642850517162,28.4761899669965" />
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[OLE DB Source Output]"
+          TopLeft="311.40475992681,47.9761900057395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="133.238090590352,0"
+              Start="0,0"
+              End="125.738090590352,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="125.738090590352,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\FactUpisDjece\vrati DatumID"
+          TopLeft="702.380941914661,28.4761899669965" />
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[Aggregate Output 1]"
+          TopLeft="572.642850517162,49.8095233003299">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="129.738091397498,0"
+              Start="0,0"
+              End="122.238091397498,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="122.238091397498,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="144,42.6666666666667"
+          Id="Package\FactUpisDjece\vrati GrupaID"
+          TopLeft="724.40475111029,115.142855083942" />
+        <NodeLayout
+          Size="153.333333333334,42.6666666666667"
+          Id="Package\FactUpisDjece\vrati LokacijaID"
+          TopLeft="728.571417714869,197.476186945041" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\FactUpisDjece\vrati PlanProgramID"
+          TopLeft="728.571417714868,281.571426257917" />
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[Lookup Match Output]"
+          TopLeft="775.714275247994,71.1428566336632">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.6904758622958,43.9999984502793"
+              Start="0,0"
+              End="20.6904758622958,36.4999984502793">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.9999992251396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.9999992251396"
+                    Point2="0,21.9999992251396"
+                    Point3="4,21.9999992251396" />
+                  <mssgle:LineSegment
+                    End="16.6904758622958,21.9999992251396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.6904758622958,21.9999992251396"
+                    Point2="20.6904758622958,21.9999992251396"
+                    Point3="20.6904758622958,25.9999992251396" />
+                  <mssgle:LineSegment
+                    End="20.6904758622958,36.4999984502793" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.8461487876021,26.9999992251396,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[Lookup Match Output1]"
+          TopLeft="796.40475111029,157.809521750609">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.83333327124524,39.6666651944319"
+              Start="0,0"
+              End="8.83333327124524,32.1666651944319">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.833332597216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.833332597216"
+                    Point2="0,19.833332597216"
+                    Point3="4,19.833332597216" />
+                  <mssgle:LineSegment
+                    End="4.83333327124524,19.833332597216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.83333327124524,19.833332597216"
+                    Point2="8.83333327124524,19.833332597216"
+                    Point3="8.83333327124524,23.833332597216" />
+                  <mssgle:LineSegment
+                    End="8.83333327124524,32.1666651944319" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.7747200831274,24.833332597216,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[Lookup Match Output2]"
+          TopLeft="805.238084381535,240.142853611708">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.6666666666665,41.4285726462092"
+              Start="0,0"
+              End="10.6666666666665,33.9285726462092">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.7142863231046" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.7142863231046"
+                    Point2="0,20.7142863231046"
+                    Point3="4,20.7142863231046" />
+                  <mssgle:LineSegment
+                    End="6.66666666666652,20.7142863231046" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.66666666666652,20.7142863231046"
+                    Point2="10.6666666666665,20.7142863231046"
+                    Point3="10.6666666666665,24.7142863231046" />
+                  <mssgle:LineSegment
+                    End="10.6666666666665,33.9285726462092" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-42.8580533854167,25.7142863231046,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\FactUpisDjece\vrati SocijalnoStanjeID"
+          TopLeft="730.952370060342,367.523807509173" />
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[Lookup Match Output3]"
+          TopLeft="815.904751048202,324.238092924584">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.3809523454737,43.2857145845891"
+              Start="0,0"
+              End="8.3809523454737,35.7857145845891">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6428572922945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6428572922945"
+                    Point2="0,21.6428572922945"
+                    Point3="4,21.6428572922945" />
+                  <mssgle:LineSegment
+                    End="4.3809523454737,21.6428572922945" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.3809523454737,21.6428572922945"
+                    Point2="8.3809523454737,21.6428572922945"
+                    Point3="8.3809523454737,25.6428572922945" />
+                  <mssgle:LineSegment
+                    End="8.3809523454737,35.7857145845891" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-44.0009105460132,26.6428572922945,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="198.666666666667,42.6666666666667"
+          Id="Package\FactUpisDjece\vrati SpecijalnaPotrebaID"
+          TopLeft="733.928560492184,447.476184841849" />
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[Lookup Match Output4]"
+          TopLeft="824.285703393675,410.190474175839">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.9761904318417,37.2857106660092"
+              Start="0,0"
+              End="8.9761904318417,29.7857106660092">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.6428553330046" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.6428553330046"
+                    Point2="0,18.6428553330046"
+                    Point3="4,18.6428553330046" />
+                  <mssgle:LineSegment
+                    End="4.9761904318417,18.6428553330046" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.9761904318417,18.6428553330046"
+                    Point2="8.9761904318417,18.6428553330046"
+                    Point3="8.9761904318417,22.6428553330046" />
+                  <mssgle:LineSegment
+                    End="8.9761904318417,29.7857106660092" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-43.7032915028292,23.6428553330046,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\FactUpisDjece\PredskolskaUstanovaDW"
+          TopLeft="734.166655726731,532.93332530578" />
+        <EdgeLayout
+          Id="Package\FactUpisDjece.Paths[Lookup Match Output5]"
+          TopLeft="832.380941442791,490.142851508515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.7904737972647"
+              Start="0,0"
+              End="0,35.2904737972647">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.2904737972647" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.8405493986324,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\PredskolskaUstanova">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\vrati DatumID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDatum]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\vrati GrupaID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimGrupa]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\vrati LokacijaID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimLokacija]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\vrati PlanProgramID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimPlanProgram]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\vrati SocijalnoStanjeID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimSocijalnoStanje]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\vrati SpecijalnaPotrebaID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimSpecijalnaPotreba]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactUpisDjece\PredskolskaUstanovaDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

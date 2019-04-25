@@ -1,0 +1,2254 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/30/2017 1:50:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EDOS-PC"
+  DTS:CreatorName="EDOS-PC\Edo's PC"
+  DTS:DTSID="{206024E4-439E-4A1D-B2FF-DE38AB971145}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="5146"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{26EBE999-F0A4-449A-91F0-E22EE9C8024C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{02613595-f178-4881-abac-ddd9e57ed170}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Delete\Delete"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{b62d5327-9f1e-428e-93e2-64034e9c2454}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Delete\Delete\Delete"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Delete"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DELETE
+FROM DimLokacija
+Where LokacijaAltID=?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Delete\Delete\Delete.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input].Columns[LokacijaAltID]"
+                          cachedDataType="i4"
+                          cachedName="LokacijaAltID"
+                          externalMetadataColumnId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="i4"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Delete.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Delete\Delete\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Grad]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Grad]) [refTable]
+where [refTable].[GradID] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="GradID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PTT" dataType="DT_WSTR" length="15" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Naziv" dataType="DT_WSTR" length="40" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DrzavaID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Delete\Delete\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="{9020CAFA-D4D7-4345-AE72-332C2CB9A110}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanova]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Delete\Delete\Lookup.Inputs[Lookup Input].Columns[LokacijaAltID]"
+                          cachedDataType="i4"
+                          cachedName="LokacijaAltID"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">GradID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Delete\Delete\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\Lookup.Outputs[Lookup Match Output].Columns[GradID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Delete\Delete\Lookup.Outputs[Lookup Match Output].Columns[GradID]"
+                          name="GradID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">GradID</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Delete\Delete\PredskolskaUstanovaDW"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PredskolskaUstanovaDW"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimLokacija]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Delete\Delete\PredskolskaUstanovaDW.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaID]"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaID]"
+                          name="LokacijaID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                          name="LokacijaAltID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Grad]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                          length="50"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Grad]"
+                          name="Grad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Drzava]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                          length="50"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Drzava]"
+                          name="Drzava"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaID]"
+                          dataType="i4"
+                          name="LokacijaID" />
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                          dataType="i4"
+                          name="LokacijaAltID" />
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                          dataType="wstr"
+                          length="50"
+                          name="Grad" />
+                        <externalMetadataColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          name="Drzava" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaID]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaID]"
+                          name="LokacijaID" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                          name="LokacijaAltID" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                          name="Grad" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                          name="Drzava" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Delete\Delete.Paths[Lookup No Match Output]"
+                  endId="Package\Delete\Delete\Delete.Inputs[OLE DB Command Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Delete\Delete\Lookup.Outputs[Lookup No Match Output]" />
+                <path
+                  refId="Package\Delete\Delete.Paths[OLE DB Source Output]"
+                  endId="Package\Delete\Delete\Lookup.Inputs[Lookup Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Delete\Delete\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update_Insert"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{778D77F9-7DA0-483B-A2D1-4183328CFAA3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update_Insert">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Update_Insert\Update_Insert"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{ABEED5BB-807C-4644-939D-1D3D3DFCC7A5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update_Insert"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Conditional Split"
+                  componentClassID="Microsoft.ConditionalSplit"
+                  contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+                  name="Conditional Split"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                      description="Input to the Conditional Split Transformation"
+                      name="Conditional Split Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[Grad]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="Grad"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[Drzava]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[LokacijaAltID]"
+                          cachedDataType="i4"
+                          cachedName="LokacijaAltID"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[LokacijaAltID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[Grad (1)]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Grad (1)"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad (1)]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input].Columns[Drzava (1)]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava (1)"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava (1)]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Novi zapis]"
+                      description="Output 1 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Novi zapis"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">[ISNULL](#{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[LokacijaAltID]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(LokacijaAltID)</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">0</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Izmjena zapisa]"
+                      description="Output 2 of the Conditional Split Transformation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      exclusionGroup="1"
+                      name="Izmjena zapisa"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                          name="Expression">#{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad]} != #{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad (1)]} || #{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava]} != #{Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava (1)]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Specifies the friendly version of the expression. This expression version uses column names."
+                          expressionType="Notify"
+                          name="FriendlyExpression">Grad != [Grad (1)] || Drzava != [Drzava (1)]</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                          name="EvaluationOrder">1</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Default Output]"
+                      description="Default Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      name="Conditional Split Default Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          name="IsDefaultOut">true</property>
+                      </properties>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output]"
+                      description="Error Output of the Conditional Split Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Conditional Split Error Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\DimLokacia"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DimLokacia"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimLokacija]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\DimLokacia.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].Columns[Grad]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="Grad"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].ExternalColumns[Grad]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].Columns[Drzava]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].ExternalColumns[Drzava]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].Columns[GradID]"
+                          cachedDataType="i4"
+                          cachedName="GradID"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaAltID]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[GradID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaID]"
+                          dataType="i4"
+                          name="LokacijaID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaAltID]"
+                          dataType="i4"
+                          name="LokacijaAltID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].ExternalColumns[Grad]"
+                          dataType="wstr"
+                          length="50"
+                          name="Grad" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input].ExternalColumns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          name="Drzava" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\DimLokacia.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\DimLokacia.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\DimLokacia.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\DimLokacia.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Merge Join"
+                  componentClassID="Microsoft.MergeJoin"
+                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+                  name="Merge Join"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of join to perform."
+                      name="JoinType"
+                      typeConverter="JoinType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of columns in the ordering key."
+                      name="NumKeyColumns">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the null values are treated as equal values."
+                      name="TreatNullsAsEqual">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates the requested maximum buffers per input before blocking."
+                      name="MaxBuffersPerInput">5</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Left Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[GradID]"
+                          cachedDataType="i4"
+                          cachedName="GradID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[GradID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[Grad]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="Grad"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[Grad]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[Drzava]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[Drzava]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Right Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[LokacijaAltID]"
+                          cachedDataType="i4"
+                          cachedName="LokacijaAltID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[LokacijaAltID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[LokacijaID]"
+                          cachedDataType="i4"
+                          cachedName="LokacijaID"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[LokacijaID]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[Grad]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Grad"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[Grad]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[Drzava]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[Drzava]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output]"
+                      isSorted="true"
+                      name="Merge Join Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[GradID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[GradID]"
+                          name="GradID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[GradID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad]"
+                          name="Grad">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[Grad]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava]"
+                          name="Drzava">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input].Columns[Drzava]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[LokacijaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[LokacijaID]"
+                          name="LokacijaID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[LokacijaID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[LokacijaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[LokacijaAltID]"
+                          name="LokacijaAltID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[LokacijaAltID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad (1)]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad (1)]"
+                          name="Grad (1)">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[Grad]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava (1)]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava (1)]"
+                          name="Drzava (1)">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input].Columns[Drzava]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PredskolskaUstanova"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT G.GradID ,G.Naziv AS Grad,D.Naziv AS Drzava
+FROM Drzava AS D 
+     INNER JOIN Grad AS G ON D.DrzavaID=G.DrzavaID</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Connections[OleDbConnection]"
+                      connectionManagerID="{9020CAFA-D4D7-4345-AE72-332C2CB9A110}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanova]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GradID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[GradID]"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GradID]"
+                          name="GradID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Grad]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                          length="40"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Grad]"
+                          name="Grad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Drzava]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Drzava]"
+                          name="Drzava"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[GradID]"
+                          dataType="i4"
+                          name="GradID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                          dataType="wstr"
+                          length="40"
+                          name="Grad" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          name="Drzava" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[GradID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[GradID]"
+                          name="GradID" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                          name="Grad" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                          name="Drzava" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="PredskolskaUstanovaDW"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimLokacija]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaID]"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaID]"
+                          name="LokacijaID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                          name="LokacijaAltID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Grad]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Grad]"
+                          name="Grad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Drzava]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Drzava]"
+                          name="Drzava"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaID]"
+                          dataType="i4"
+                          name="LokacijaID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                          dataType="i4"
+                          name="LokacijaAltID" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                          dataType="wstr"
+                          length="50"
+                          name="Grad" />
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          name="Drzava" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaID]"
+                          name="LokacijaID" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                          name="LokacijaAltID" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                          name="Grad" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                          name="Drzava" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input].Columns[GradID]"
+                          cachedDataType="i4"
+                          cachedName="GradID"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GradID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input].Columns[Grad]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="Grad"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Grad]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input].Columns[Drzava]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Drzava]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[GradID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[GradID]"
+                          name="GradID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[GradID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[Grad]"
+                          dataType="wstr"
+                          length="40"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[Grad]"
+                          name="Grad">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Grad]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output].Columns[Drzava]"
+                          name="Drzava">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Drzava]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Sort 1"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input].Columns[LokacijaID]"
+                          cachedDataType="i4"
+                          cachedName="LokacijaID"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input].Columns[LokacijaAltID]"
+                          cachedDataType="i4"
+                          cachedName="LokacijaAltID"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input].Columns[Grad]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Grad"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Grad]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input].Columns[Drzava]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava"
+                          lineageId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Drzava]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[LokacijaID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[LokacijaID]"
+                          name="LokacijaID">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[LokacijaAltID]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[LokacijaAltID]"
+                          name="LokacijaAltID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[LokacijaAltID]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[Grad]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[Grad]"
+                          name="Grad">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Grad]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[Drzava]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output].Columns[Drzava]"
+                          name="Drzava">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output].Columns[Drzava]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Update_Insert\Update_Insert\Update"
+                  componentClassID="Microsoft.OLEDBCommand"
+                  contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+                  name="Update"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE DimLokacija
+SET Grad=? , Drzava=?
+WHERE LokacijaAltID=?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1250</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Update_Insert\Update_Insert\Update.Connections[OleDbConnection]"
+                      connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]"
+                      errorOrTruncationOperation="Command Execution"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Command Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].Columns[Grad]"
+                          cachedDataType="wstr"
+                          cachedLength="40"
+                          cachedName="Grad"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Grad]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].Columns[Drzava]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Drzava"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[Drzava]" />
+                        <inputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].Columns[GradID]"
+                          cachedDataType="i4"
+                          cachedName="GradID"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          lineageId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output].Columns[GradID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_0">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                          dataType="wstr"
+                          length="50"
+                          name="Param_1">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">65</property>
+                          </properties>
+                        </externalMetadataColumn>
+                        <externalMetadataColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                          dataType="i4"
+                          name="Param_2">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                              name="DBParamInfoFlags">81</property>
+                          </properties>
+                        </externalMetadataColumn>
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Output]"
+                      exclusionGroup="1"
+                      name="OLE DB Command Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Command Error Output"
+                      synchronousInputId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Update_Insert\Update_Insert\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Merge Join Output]"
+                  endId="Package\Update_Insert\Update_Insert\Conditional Split.Inputs[Conditional Split Input]"
+                  name="Merge Join Output"
+                  startId="Package\Update_Insert\Update_Insert\Merge Join.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Novi_zapis]"
+                  endId="Package\Update_Insert\Update_Insert\DimLokacia.Inputs[OLE DB Destination Input]"
+                  name="Novi_zapis"
+                  startId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Novi zapis]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output]"
+                  endId="Package\Update_Insert\Update_Insert\Sort.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Update_Insert\Update_Insert\PredskolskaUstanova.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output1]"
+                  endId="Package\Update_Insert\Update_Insert\Sort 1.Inputs[Sort Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW.Outputs[OLE DB Source Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Sort Output]"
+                  endId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Left Input]"
+                  name="Sort Output"
+                  startId="Package\Update_Insert\Update_Insert\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Sort Output1]"
+                  endId="Package\Update_Insert\Update_Insert\Merge Join.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\Update_Insert\Update_Insert\Sort 1.Outputs[Sort Output]" />
+                <path
+                  refId="Package\Update_Insert\Update_Insert.Paths[Update]"
+                  endId="Package\Update_Insert\Update_Insert\Update.Inputs[OLE DB Command Input]"
+                  name="Update"
+                  startId="Package\Update_Insert\Update_Insert\Conditional Split.Outputs[Izmjena zapisa]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BE428E75-E41A-4416-A8C1-E6281846263E}"
+      DTS:From="Package\Update_Insert"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Delete" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="109.333333333334,42.6666666666667"
+          Id="Package\Delete\Delete"
+          TopLeft="49.880952531738,25.9523815611998" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="217.333333333334,124"
+          Size="217.333333333334,166.666666666667"
+          Id="Package\Delete"
+          TopLeft="261.84523419344,232.966665326158" />
+        <NodeLayout
+          Size="146.666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert"
+          TopLeft="37.4761860235817,12.9523794690768" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="223.333333333334,110.666666666667"
+          Size="223.333333333334,153.333333333334"
+          Id="Package\Update_Insert"
+          TopLeft="261.249996107072,27.299999511838" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="371.714281816922,180.633332845171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.333332480987"
+              Start="0,0"
+              End="0,44.833332480987">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.833332480987" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Delete\Delete">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Delete\Delete\PredskolskaUstanovaDW"
+          TopLeft="216.666666666667,14" />
+        <NodeLayout
+          Size="109.333333333334,42.6666666666667"
+          Id="Package\Delete\Delete\Delete"
+          TopLeft="242,220.666666666667" />
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Delete\Delete\Lookup"
+          TopLeft="253.333333333333,118" />
+        <EdgeLayout
+          Id="Package\Delete\Delete.Paths[OLE DB Source Output]"
+          TopLeft="312,56.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.3333333333334"
+              Start="0,0"
+              End="0,53.8333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.8333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Delete\Delete.Paths[Lookup No Match Output]"
+          TopLeft="310,160.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.333333333333,60.0000000000003"
+              Start="0,0"
+              End="-13.333333333333,52.5000000000003">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.0000000000001"
+                    Point2="0,30.0000000000001"
+                    Point3="-4,30.0000000000001" />
+                  <mssgle:LineSegment
+                    End="-9.33333333333303,30.0000000000001" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.33333333333303,30.0000000000001"
+                    Point2="-13.333333333333,30.0000000000001"
+                    Point3="-13.333333333333,34.0000000000001" />
+                  <mssgle:LineSegment
+                    End="-13.333333333333,52.5000000000003" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-62.4730533854165,35.0000000000001,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Delete\Delete\PredskolskaUstanovaDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Delete\Delete\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Grad]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Update_Insert\Update_Insert">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW"
+          TopLeft="344.166661538184,21.6333347823222" />
+        <NodeLayout
+          Size="131.333333333334,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Merge Join"
+          TopLeft="300.520828855224,229.666662559907" />
+        <NodeLayout
+          Size="108,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Sort 1"
+          TopLeft="419.166660420597,131.299997652173" />
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\PredskolskaUstanova"
+          TopLeft="138.333331272006,19.0666663257281" />
+        <NodeLayout
+          Size="133.333333333334,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\DimLokacia"
+          TopLeft="481.249992828816,388.916659712295" />
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Sort"
+          TopLeft="195.499997168779,134.633331024249" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Conditional Split"
+          TopLeft="288.888884584109,314.166661048929" />
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Update_Insert\Update_Insert\Update"
+          TopLeft="91.1249989600232,402.08332610776" />
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Update]"
+          TopLeft="342.222217917442,356.833327715596">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-194.430552290753,45.2499983921643"
+              Start="0,0"
+              End="-194.430552290753,37.7499983921643">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3756338648383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3756338648383"
+                    Point2="0,18.3756338648383"
+                    Point3="-4,18.3756338648383" />
+                  <mssgle:LineSegment
+                    End="-190.430552290753,18.3756338648383" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-190.430552290753,18.3756338648383"
+                    Point2="-194.430552290753,18.3756338648383"
+                    Point3="-194.430552290753,22.3756338648383" />
+                  <mssgle:LineSegment
+                    End="-194.430552290753,37.7499983921643" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-130.590237082876,23.3756338648383,66.749921875,11.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Sort Output1]"
+          TopLeft="473.166660420597,173.96666431884">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-86.4236093431504,55.6999982410669"
+              Start="0,0"
+              End="-86.4236093431504,48.1999982410669">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.0177522171219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.0177522171219"
+                    Point2="0,33.0177522171219"
+                    Point3="-4,33.0177522171219" />
+                  <mssgle:LineSegment
+                    End="-82.4236093431504,33.0177522171219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-82.4236093431504,33.0177522171219"
+                    Point2="-86.4236093431504,33.0177522171219"
+                    Point3="-86.4236093431504,37.0177522171219" />
+                  <mssgle:LineSegment
+                    End="-86.4236093431504,48.1999982410669" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Sort Output]"
+          TopLeft="244.833330502113,177.299997690916">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="100.798609464222,52.3666648689905"
+              Start="0,0"
+              End="100.798609464222,44.8666648689905">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0418244108058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.0418244108058"
+                    Point2="0,31.0418244108058"
+                    Point3="4,31.0418244108058" />
+                  <mssgle:LineSegment
+                    End="96.7986094642224,31.0418244108058" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96.7986094642224,31.0418244108058"
+                    Point2="100.798609464222,31.0418244108058"
+                    Point3="100.798609464222,35.0418244108058" />
+                  <mssgle:LineSegment
+                    End="100.798609464222,44.8666648689905" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output1]"
+          TopLeft="441.499994871517,64.3000014489889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="31.6666655490795,66.9999962031842"
+              Start="0,0"
+              End="31.6666655490795,59.4999962031842">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.4999981015921" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.4999981015921"
+                    Point2="0,33.4999981015921"
+                    Point3="4,33.4999981015921" />
+                  <mssgle:LineSegment
+                    End="27.6666655490795,33.4999981015921" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.6666655490795,33.4999981015921"
+                    Point2="31.6666655490795,33.4999981015921"
+                    Point3="31.6666655490795,37.4999981015921" />
+                  <mssgle:LineSegment
+                    End="31.6666655490795,59.4999962031842" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[OLE DB Source Output]"
+          TopLeft="227.666664605339,61.7333329923948">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.1666658967733,72.8999980318547"
+              Start="0,0"
+              End="17.1666658967733,65.3999980318547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.4499990159273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.4499990159273"
+                    Point2="0,36.4499990159273"
+                    Point3="4,36.4499990159273" />
+                  <mssgle:LineSegment
+                    End="13.1666658967733,36.4499990159273" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.1666658967733,36.4499990159273"
+                    Point2="17.1666658967733,36.4499990159273"
+                    Point3="17.1666658967733,40.4499990159273" />
+                  <mssgle:LineSegment
+                    End="17.1666658967733,65.3999980318547" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Novi_zapis]"
+          TopLeft="391.555551250776,356.833327715596">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.361108244707,32.0833319966991"
+              Start="0,0"
+              End="156.361108244707,24.5833319966991">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.02876426261894" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.02876426261894"
+                    Point2="0,13.0287642626189"
+                    Point3="4,13.0287642626189" />
+                  <mssgle:LineSegment
+                    End="152.361108244707,13.0287642626189" />
+                  <mssgle:CubicBezierSegment
+                    Point1="152.361108244707,13.0287642626189"
+                    Point2="156.361108244707,13.0287642626189"
+                    Point3="156.361108244707,17.0287642626189" />
+                  <mssgle:LineSegment
+                    End="156.361108244707,24.5833319966991" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="55.4079759973535,18.0287642626189,45.54515625,11.3310546875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Update_Insert\Update_Insert.Paths[Merge Join Output]"
+          TopLeft="366.538190053,272.333329226573">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.8333318223557"
+              Start="0,0"
+              End="0,34.3333318223557">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.3333318223557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update_Insert\Update_Insert\PredskolskaUstanovaDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update_Insert\Update_Insert\PredskolskaUstanova">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Update_Insert\Update_Insert\DimLokacia">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

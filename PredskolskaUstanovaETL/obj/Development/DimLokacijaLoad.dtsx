@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/30/2017 10:22:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EDOS-PC"
+  DTS:CreatorName="EDOS-PC\Edo's PC"
+  DTS:DTSID="{31E94297-6235-40B7-B47C-AABE9BFE52DF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="5146"
+  DTS:ObjectName="DimLokacijaLoad"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{459B327C-5E78-4349-B4F0-A04BE0760D39}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimLokacijaLoad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A7ABA50C-24E9-4F85-9251-517C21492695}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimLokacijaLoad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimLokacijaLoad\PredskolskaUstanova"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="PredskolskaUstanova"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT G.GradID AS LokacijaAltID,G.Naziv AS Grad,D.Naziv AS Drzava
+FROM Drzava AS D 
+     INNER JOIN Grad AS G ON D.DrzavaID=G.DrzavaID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimLokacijaLoad\PredskolskaUstanova.Connections[OleDbConnection]"
+                  connectionManagerID="{9020CAFA-D4D7-4345-AE72-332C2CB9A110}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanova]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[LokacijaAltID]"
+                      name="LokacijaAltID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Grad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                      length="40"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Grad]"
+                      name="Grad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Drzava]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                      length="50"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Drzava]"
+                      name="Drzava"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[LokacijaAltID]"
+                      dataType="i4"
+                      name="LokacijaAltID" />
+                    <externalMetadataColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Grad]"
+                      dataType="wstr"
+                      length="40"
+                      name="Grad" />
+                    <externalMetadataColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Drzava]"
+                      dataType="wstr"
+                      length="50"
+                      name="Drzava" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                      dataType="i4"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[LokacijaAltID]"
+                      name="LokacijaAltID" />
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Grad]"
+                      name="Grad" />
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Drzava]"
+                      name="Drzava" />
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="PredskolskaUstanovaDW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimLokacija]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[LokacijaAltID]"
+                      cachedDataType="i4"
+                      cachedName="LokacijaAltID"
+                      externalMetadataColumnId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaAltID]"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[LokacijaAltID]" />
+                    <inputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[Grad]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Grad"
+                      externalMetadataColumnId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[Grad]"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Grad]" />
+                    <inputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[Drzava]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Drzava"
+                      externalMetadataColumnId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[Drzava]"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Drzava]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaID]"
+                      dataType="i4"
+                      name="LokacijaID" />
+                    <externalMetadataColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[LokacijaAltID]"
+                      dataType="i4"
+                      name="LokacijaAltID" />
+                    <externalMetadataColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[Grad]"
+                      dataType="wstr"
+                      length="50"
+                      name="Grad" />
+                    <externalMetadataColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[Drzava]"
+                      dataType="wstr"
+                      length="50"
+                      name="Drzava" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimLokacijaLoad.Paths[OLE DB Source Output]"
+              endId="Package\DimLokacijaLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DimLokacijaLoad\PredskolskaUstanova.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\DimLokacijaLoad"
+          TopLeft="111.666665002704,38.9999993026257" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimLokacijaLoad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\DimLokacijaLoad\PredskolskaUstanova"
+          TopLeft="119.583331551403,15.5999997210503" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\DimLokacijaLoad\PredskolskaUstanovaDW"
+          TopLeft="271.874995948747,119.166664535801" />
+        <EdgeLayout
+          Id="Package\DimLokacijaLoad.Paths[OLE DB Source Output]"
+          TopLeft="208.916664884736,58.2666663877169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="160.291664397344,60.8999981480837"
+              Start="0,0"
+              End="160.291664397344,53.3999981480837">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4499990740419" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.4499990740419"
+                    Point2="0,30.4499990740419"
+                    Point3="4,30.4499990740419" />
+                  <mssgle:LineSegment
+                    End="156.291664397344,30.4499990740419" />
+                  <mssgle:CubicBezierSegment
+                    Point1="156.291664397344,30.4499990740419"
+                    Point2="160.291664397344,30.4499990740419"
+                    Point3="160.291664397344,34.4499990740419" />
+                  <mssgle:LineSegment
+                    End="160.291664397344,53.3999981480837" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimLokacijaLoad\PredskolskaUstanova">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimLokacijaLoad\PredskolskaUstanovaDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

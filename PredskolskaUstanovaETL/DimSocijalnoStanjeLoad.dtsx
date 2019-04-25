@@ -1,0 +1,416 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/30/2017 10:31:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EDOS-PC"
+  DTS:CreatorName="EDOS-PC\Edo's PC"
+  DTS:DTSID="{34601A16-93FA-4C9F-BC48-61C4B44A8E79}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="14.0.0800.98"
+  DTS:LocaleID="5146"
+  DTS:ObjectName="DimSocijalnoStanjeLoad"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{CB0BD376-487D-4C7C-907F-3EF6E0429C32}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DimSocijalnoStanjeLoad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{F0874CE7-81CB-4B33-978D-7325594B79E8}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimSocijalnoStanjeLoad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="PredskolskaUstanova"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SocijalnoStanje]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Connections[OleDbConnection]"
+                  connectionManagerID="{9020CAFA-D4D7-4345-AE72-332C2CB9A110}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanova]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SocijalnoStanjeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SocijalnoStanjeID]"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SocijalnoStanjeID]"
+                      name="SocijalnoStanjeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Kategorija]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Kategorija]"
+                      length="20"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Kategorija]"
+                      name="Kategorija"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Opis]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Opis]"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Opis]"
+                      name="Opis"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[SocijalnoStanjeID]"
+                      dataType="i4"
+                      name="SocijalnoStanjeID" />
+                    <externalMetadataColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Kategorija]"
+                      dataType="wstr"
+                      length="20"
+                      name="Kategorija" />
+                    <externalMetadataColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].ExternalColumns[Opis]"
+                      dataType="nText"
+                      name="Opis" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SocijalnoStanjeID]"
+                      dataType="i4"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[SocijalnoStanjeID]"
+                      name="SocijalnoStanjeID" />
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Kategorija]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Kategorija]"
+                      name="Kategorija" />
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Opis]"
+                      dataType="nText"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[Opis]"
+                      name="Opis" />
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="PredskolskaUstanovaDW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSocijalnoStanje]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1250</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Connections[OleDbConnection]"
+                  connectionManagerID="{D9A201C3-17FF-4300-8418-4D10D9F280DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[EDOS-PC.PredskolskaUstanovaDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[Kategorija]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Kategorija"
+                      externalMetadataColumnId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[Kategorija]"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[Kategorija]" />
+                    <inputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].Columns[SocijalnoStanjeID]"
+                      cachedDataType="i4"
+                      cachedName="SocijalnoStanjeID"
+                      externalMetadataColumnId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SocijalnoStanjeAltID]"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output].Columns[SocijalnoStanjeID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SocijalnoStanjeID]"
+                      dataType="i4"
+                      name="SocijalnoStanjeID" />
+                    <externalMetadataColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[SocijalnoStanjeAltID]"
+                      dataType="i4"
+                      name="SocijalnoStanjeAltID" />
+                    <externalMetadataColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input].ExternalColumns[Kategorija]"
+                      dataType="wstr"
+                      length="50"
+                      name="Kategorija" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimSocijalnoStanjeLoad.Paths[OLE DB Source Output]"
+              endId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="192,42.6666666666667"
+          Id="Package\DimSocijalnoStanjeLoad"
+          TopLeft="126.666664779186,44.6333325352272" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimSocijalnoStanjeLoad">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova"
+          TopLeft="118.333331570029,17.3333330233892" />
+        <NodeLayout
+          Size="194.666666666667,42.6666666666667"
+          Id="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW"
+          TopLeft="228.333329930902,130.433331001004" />
+        <EdgeLayout
+          Id="Package\DimSocijalnoStanjeLoad.Paths[OLE DB Source Output]"
+          TopLeft="207.666664903363,59.9999996900559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="117.999998360872,70.4333313109478"
+              Start="0,0"
+              End="117.999998360872,62.9333313109478">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.2166656554739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.2166656554739"
+                    Point2="0,35.2166656554739"
+                    Point3="4,35.2166656554739" />
+                  <mssgle:LineSegment
+                    End="113.999998360872,35.2166656554739" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113.999998360872,35.2166656554739"
+                    Point2="117.999998360872,35.2166656554739"
+                    Point3="117.999998360872,39.2166656554739" />
+                  <mssgle:LineSegment
+                    End="117.999998360872,62.9333313109478" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimSocijalnoStanjeLoad\PredskolskaUstanova">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimSocijalnoStanjeLoad\PredskolskaUstanovaDW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

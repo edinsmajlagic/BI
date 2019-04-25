@@ -1,2 +1,2 @@
 # BI
-Business Intelligence projects
+Business Intelligence - Predskolska ustanova

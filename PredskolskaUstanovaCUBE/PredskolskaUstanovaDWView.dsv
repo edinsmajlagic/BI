@@ -1,0 +1,253 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="a51d8cd4-99d5-4005-af92-1d655830bcd2" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>PredskolskaUstanovaDWView</ID>
+  <Name>PredskolskaUstanovaDWView</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>PredskolskaUstanovaDW</DataSourceID>
+  <Schema>
+    <xs:schema id="PredskolskaUstanovaDWView" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="PredskolskaUstanovaDWView" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="a911b6ea-ed8c-4f50-952f-6cc78a4e25d8">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_DimDatum" msprop:design-time-name="00ca634b-eb0b-4a85-9bd8-fd0a3948fb1d" msprop:DbTableName="DimDatum" msprop:FriendlyName="DimDatum" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DatumID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="7231100f-b3e0-495a-bda8-61dd9e865cff" msprop:DbColumnName="DatumID" msprop:FriendlyName="DatumID" type="xs:int" />
+                  <xs:element name="DatumAltID" msprop:design-time-name="09dde698-d9f6-4801-a15c-44a4bbfb7e3e" msprop:DbColumnName="DatumAltID" msprop:FriendlyName="DatumAltID" type="xs:dateTime" />
+                  <xs:element name="Godina" msprop:design-time-name="e499f308-8c3b-4538-8ab3-cce54180a010" msprop:DbColumnName="Godina" msprop:FriendlyName="Godina" type="xs:int" />
+                  <xs:element name="Mjesec" msprop:design-time-name="e81888e8-a80f-416b-9b60-15e0dcdb54dc" msprop:DbColumnName="Mjesec" msprop:FriendlyName="Mjesec">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="9" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimGrupa" msprop:design-time-name="eef0621d-15dc-46fe-9dc1-212c52a3c683" msprop:DbTableName="DimGrupa" msprop:FriendlyName="DimGrupa" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="GrupaID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="f00ae7b6-8a6a-4c03-8e4c-06b6a2e68688" msprop:DbColumnName="GrupaID" msprop:FriendlyName="GrupaID" type="xs:int" />
+                  <xs:element name="GrupaAltID" msprop:design-time-name="3997a4dc-b916-497c-a83d-fbf0ef3ad565" msprop:DbColumnName="GrupaAltID" msprop:FriendlyName="GrupaAltID" type="xs:int" />
+                  <xs:element name="Naziv" msprop:design-time-name="cb01afc8-b695-4c22-9288-aeb79f91ddfe" msprop:DbColumnName="Naziv" msprop:FriendlyName="Naziv">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="StarosnaDob" msprop:design-time-name="87c48b23-ef9d-4933-8063-2c5d25865d84" msprop:DbColumnName="StarosnaDob" msprop:FriendlyName="StarosnaDob">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="30" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimLokacija" msprop:design-time-name="df42952a-4362-4d52-b515-169d71128498" msprop:DbTableName="DimLokacija" msprop:FriendlyName="DimLokacija" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="LokacijaID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="d664a5db-c4b3-4c6d-bdba-f3bfc9f10932" msprop:DbColumnName="LokacijaID" msprop:FriendlyName="LokacijaID" type="xs:int" />
+                  <xs:element name="LokacijaAltID" msprop:design-time-name="fa31bf12-5153-40d9-9ea5-f2417a00ddb3" msprop:DbColumnName="LokacijaAltID" msprop:FriendlyName="LokacijaAltID" type="xs:int" />
+                  <xs:element name="Grad" msprop:design-time-name="3069ebb6-252c-439b-b3fb-fb4762b427d1" msprop:DbColumnName="Grad" msprop:FriendlyName="Grad">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Drzava" msprop:design-time-name="fdb9a134-be99-46fe-8fef-d59e2af2a56b" msprop:DbColumnName="Drzava" msprop:FriendlyName="Drzava">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimPlanProgram" msprop:design-time-name="5bb8fdbd-5459-4df5-b8e4-107708fe6ca0" msprop:DbTableName="DimPlanProgram" msprop:FriendlyName="DimPlanProgram" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="PlanProgramID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="f51569e5-8d80-4e9f-81da-e268853a8319" msprop:DbColumnName="PlanProgramID" msprop:FriendlyName="PlanProgramID" type="xs:int" />
+                  <xs:element name="PlanProgramAltID" msprop:design-time-name="2b24de97-2f68-4c7b-902e-30acd3a77539" msprop:DbColumnName="PlanProgramAltID" msprop:FriendlyName="PlanProgramAltID" type="xs:int" minOccurs="0" />
+                  <xs:element name="Naziv" msprop:design-time-name="afef8cba-d4f5-4d54-8c19-2a573e8e997d" msprop:DbColumnName="Naziv" msprop:FriendlyName="Naziv" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimSocijalnoStanje" msprop:design-time-name="d5f5aa58-5a1b-47f7-8731-93d0ce7912da" msprop:DbTableName="DimSocijalnoStanje" msprop:FriendlyName="DimSocijalnoStanje" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SocijalnoStanjeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="20bae744-f432-408c-868f-252659d9f555" msprop:DbColumnName="SocijalnoStanjeID" msprop:FriendlyName="SocijalnoStanjeID" type="xs:int" />
+                  <xs:element name="SocijalnoStanjeAltID" msprop:design-time-name="98717498-da88-4df1-97e3-12f809d0f8a4" msprop:DbColumnName="SocijalnoStanjeAltID" msprop:FriendlyName="SocijalnoStanjeAltID" type="xs:int" />
+                  <xs:element name="Kategorija" msprop:design-time-name="c565b902-f25a-46a0-85c0-9f65249ef164" msprop:DbColumnName="Kategorija" msprop:FriendlyName="Kategorija">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimSpecijalnaPotreba" msprop:design-time-name="1575545c-70d0-42b6-b054-ab756de18455" msprop:DbTableName="DimSpecijalnaPotreba" msprop:FriendlyName="DimSpecijalnaPotreba" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SpecijalnaPotrebaID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="aa1149cf-69eb-466a-b53f-e76c405437b6" msprop:DbColumnName="SpecijalnaPotrebaID" msprop:FriendlyName="SpecijalnaPotrebaID" type="xs:int" />
+                  <xs:element name="SpecijalnaPotrebaAltID" msprop:design-time-name="d199f2fc-5d22-40f7-9086-199bb420efb9" msprop:DbColumnName="SpecijalnaPotrebaAltID" msprop:FriendlyName="SpecijalnaPotrebaAltID" type="xs:int" />
+                  <xs:element name="TipPotrebe" msprop:design-time-name="5a370d51-f61f-488e-95dd-d67a038d6917" msprop:DbColumnName="TipPotrebe" msprop:FriendlyName="TipPotrebe">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_DimSpol" msprop:design-time-name="d0a1e422-ff7b-460b-a5c5-b32761ff1178" msprop:DbTableName="DimSpol" msprop:FriendlyName="DimSpol" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="SpolKey" msprop:design-time-name="f747cd3e-7da7-4489-a9ca-de01471ac08e" msprop:DbColumnName="SpolKey" msprop:FriendlyName="SpolKey">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_FactUpisDjece" msprop:design-time-name="e8a30ee7-8e02-464c-96f1-21a8024d6356" msprop:DbTableName="FactUpisDjece" msprop:FriendlyName="FactUpisDjece" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="UpisDjeceID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="6d497513-c29c-4c02-a2ee-dc90cb744604" msprop:DbColumnName="UpisDjeceID" msprop:FriendlyName="UpisDjeceID" type="xs:int" />
+                  <xs:element name="DatumID" msprop:design-time-name="3d948d89-a3fc-4f07-9c7c-ee95ee0d861c" msprop:DbColumnName="DatumID" msprop:FriendlyName="DatumID" type="xs:int" minOccurs="0" />
+                  <xs:element name="GrupaID" msprop:design-time-name="eeedeea1-2c97-4398-bb77-1dfad01328f0" msprop:DbColumnName="GrupaID" msprop:FriendlyName="GrupaID" type="xs:int" minOccurs="0" />
+                  <xs:element name="LokacijaID" msprop:design-time-name="16580656-429f-4961-a2c4-5527d525cf48" msprop:DbColumnName="LokacijaID" msprop:FriendlyName="LokacijaID" type="xs:int" minOccurs="0" />
+                  <xs:element name="PlanProgramID" msprop:design-time-name="2074e602-b0a7-4b9a-bed0-753153e91343" msprop:DbColumnName="PlanProgramID" msprop:FriendlyName="PlanProgramID" type="xs:int" minOccurs="0" />
+                  <xs:element name="SocijalnoStanjeID" msprop:design-time-name="493483e5-ba28-4dfa-8a17-664f07dcd36b" msprop:DbColumnName="SocijalnoStanjeID" msprop:FriendlyName="SocijalnoStanjeID" type="xs:int" minOccurs="0" />
+                  <xs:element name="SpecijalnaPotrebaID" msprop:design-time-name="118e8d98-9bce-4aae-8cc4-9c7e2c17689c" msprop:DbColumnName="SpecijalnaPotrebaID" msprop:FriendlyName="SpecijalnaPotrebaID" type="xs:int" minOccurs="0" />
+                  <xs:element name="SpolKey" msprop:design-time-name="709a3d10-7f51-4fa8-954c-9e80e676feb5" msprop:DbColumnName="SpolKey" msprop:FriendlyName="SpolKey">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="UkupnoUpisano" msprop:design-time-name="82a279b2-ce09-44e1-becd-b97e26d8f94d" msprop:DbColumnName="UkupnoUpisano" msprop:FriendlyName="UkupnoUpisano" type="xs:int" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimDatum" />
+          <xs:field xpath="DatumID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimGrupa_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimGrupa" />
+          <xs:field xpath="GrupaID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimLokacija_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimLokacija" />
+          <xs:field xpath="LokacijaID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimPlanProgram_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimPlanProgram" />
+          <xs:field xpath="PlanProgramID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimSocijalnoStanje_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimSocijalnoStanje" />
+          <xs:field xpath="SocijalnoStanjeID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimSpecijalnaPotreba_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimSpecijalnaPotreba" />
+          <xs:field xpath="SpecijalnaPotrebaID" />
+        </xs:unique>
+        <xs:unique name="dbo_DimSpol_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_DimSpol" />
+          <xs:field xpath="SpolKey" />
+        </xs:unique>
+        <xs:unique name="dbo_FactUpisDjece_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="UpisDjeceID" />
+        </xs:unique>
+        <xs:keyref name="FK_FactUpisDjece_DimSpecijalnaPotreba_SpecijalnaPotrebaID" refer="dbo_DimSpecijalnaPotreba_Constraint1">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="SpecijalnaPotrebaID" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactUpisDjece_DimLokacija_LokacijaID" refer="dbo_DimLokacija_Constraint1">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="LokacijaID" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactUpisDjece_DimSocijalnoStanje_SocijalnoStanjeID" refer="dbo_DimSocijalnoStanje_Constraint1">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="SocijalnoStanjeID" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactUpisDjece_DimPlanProgram_PlanProgramID" refer="dbo_DimPlanProgram_Constraint1">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="PlanProgramID" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactUpisDjece_DimSpol_SpolKey" refer="dbo_DimSpol_Constraint1">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="SpolKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactUpisDjece_DimGrupa_GrupaID" refer="dbo_DimGrupa_Constraint1">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="GrupaID" />
+        </xs:keyref>
+        <xs:keyref name="FK_FactUpisDjece_DimDatum_DatumID" refer="Constraint1">
+          <xs:selector xpath=".//dbo_FactUpisDjece" />
+          <xs:field xpath="DatumID" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <PredskolskaUstanovaDWView xmlns="" />
+  </Schema>
+</DataSourceView>
